@@ -1,68 +1,39 @@
-// Wait for the DOM to be ready
 document.addEventListener("DOMContentLoaded", function () {
-    // Get reference to the table
-    const table = document.querySelector("#next-event-row table");
+    const table = document.querySelector(".upcoming-events tbody");
+    const today = new Date();
+    let nextEventDate = null;
+    let nextEventLocation = null;
+    let nextEventTime = null;
+    let nextEventTopic = null;
 
-    // Get reference to filter elements
-    const locationFilter = document.getElementById("location-filter");
-    const monthFilter = document.getElementById("month-filter");
+    // Loop through the table rows to find the next event
+    for (const row of table.rows) {
+        const dateCell = row.cells[1];
+        const locationCell = row.cells[0];
+        const timeCell = row.cells[2];
+        const topicCell = row.cells[3];
 
-    // Add event listeners for filtering
-    locationFilter.addEventListener("change", filterTable);
-    monthFilter.addEventListener("change", filterTable);
+        // Parse the date in "M/D/YYYY" format
+        const dateParts = dateCell.textContent.split("/");
+        const eventDate = new Date(`${dateParts[2]}-${dateParts[0]}-${dateParts[1]}`);
 
-    // Find and display the next event
-    findNextEvent();
-
-    // Function to filter the table
-    function filterTable() {
-        const locationValue = locationFilter.value;
-        const monthValue = monthFilter.value;
-
-        for (const row of table.querySelectorAll("tbody tr")) {
-            const cells = row.querySelectorAll("td");
-            const location = cells[0].textContent;
-            const date = cells[1].textContent;
-            const eventMonth = new Date(date).getMonth() + 1;
-
-            if (
-                (locationValue === "all" || location === locationValue) &&
-                (monthValue === "all" || eventMonth.toString() === monthValue)
-            ) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
+        // Check if the event date is today or in the future
+        if (eventDate >= today) {
+            if (!nextEventDate || eventDate < nextEventDate) {
+                nextEventDate = eventDate;
+                nextEventLocation = locationCell.textContent;
+                nextEventTime = timeCell.textContent;
+                nextEventTopic = topicCell.textContent;
             }
         }
     }
 
-    // Function to find and display the next event
-    function findNextEvent() {
-        const today = new Date();
-        let closestEventDate = null;
-        let closestEventTime = null;
-        let closestEventTopics = null;
-
-        for (const row of table.querySelectorAll("tbody tr")) {
-            const cells = row.querySelectorAll("td");
-            const date = new Date(cells[1].textContent);
-            const time = cells[2].textContent;
-            const topics = cells[3].textContent;
-
-            if (date >= today) {
-                if (!closestEventDate || date < closestEventDate) {
-                    closestEventDate = date;
-                    closestEventTime = time;
-                    closestEventTopics = topics;
-                }
-            }
-        }
-
-        if (closestEventDate) {
-            const formattedDate = closestEventDate.toLocaleDateString();
-            console.log(
-                `My next event is on ${formattedDate} at ${closestEventTime} and the topic(s) will be ${closestEventTopics}`
-            );
-        }
+    // Display the information above the table
+    if (nextEventDate) {
+        const formattedDate = nextEventDate.toLocaleDateString();
+        const message = `My next event is at ${nextEventLocation} at ${nextEventTime} and the topic(s) will be ${nextEventTopic}`;
+        const eventInfo = document.createElement("p");
+        eventInfo.textContent = message;
+        document.body.insertBefore(eventInfo, table);
     }
 });
