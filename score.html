@@ -3,10 +3,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
-	<link href = './assets/css/styles.css' rel = 'stylesheet'/>
+	<!-- <link href = './assets/css/styles.css' rel = 'stylesheet'/> -->
+	<title>Trivia Scores</title>
+        <style type="text/css">
+            body, html
+            {
+                margin: 0; padding: 0; height: 100%; overflow: hidden;
+            }
+
+            #content
+            {
+                position:absolute; left: 0; right: 0; bottom: 0; top: 0px; 
+            }
+        </style>
 </head>
 
 <body>
-<iframe height="400" width="100%" frameborder="no" src="https://joneskyle0.shinyapps.io/trivia_scores/"> </iframe>
+	<div id="content">
+		<iframe height="100%" width="100%" frameborder="0" src="https://joneskyle0.shinyapps.io/trivia_scores/"> </iframe>
+	</div>
 </body>
 </html>
