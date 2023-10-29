@@ -25,8 +25,19 @@ document.addEventListener("DOMContentLoaded", function () {
     if (nextEventDate) {
         const formattedDate = nextEventDate.toLocaleDateString();
         const message = `My next event is at ${nextEventLocation} at ${nextEventTime} and the topic(s) will be ${nextEventTopic}`;
+        
+        // Create a container div to hold the table and event message
+        const container = document.createElement("div");
+        
+        // Append the event message to the container
         const eventInfo = document.createElement("p");
         eventInfo.textContent = message;
-        document.body.insertBefore(eventInfo, table);
+        container.appendChild(eventInfo);
+
+        // Append the table to the container
+        container.appendChild(table);
+
+        // Replace the existing table with the container
+        table.parentNode.replaceChild(container, table);
     }
 });
