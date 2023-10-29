@@ -71,3 +71,28 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+            /* Additional CSS to center, format, and add zebra striping to the table */
+            .upcoming-topics {
+                margin: 0 auto; /* Center the table horizontally */
+                width: 80%; /* Adjust the table width as needed */
+                border-collapse: collapse; /* Remove default cell spacing */
+            }
+            .upcoming-topics th, .upcoming-topics td {
+                border: 1px solid #ddd; /* Add border to table cells */
+                padding: 10px; /* Add padding to cells for spacing */
+                text-align: center; /* Center-align cell content */
+            }
+            .upcoming-topics th {
+                background-color: #007BFF; /* Header background color */
+                color: #fff; /* Header text color */
+            }
+            .upcoming-topics tbody tr:nth-child(odd) {
+                background-color: #f0f0f0; /* Zebra striping for odd rows */
+            }
+            .upcoming-topics tbody tr:nth-child(even) {
+                background-color: #e0e0e0; /* Zebra striping for even rows */
+            }
+            .upcoming-topics th, .upcoming-topics td {
+                font-size: 16px; /* Increase text size */
+            }
