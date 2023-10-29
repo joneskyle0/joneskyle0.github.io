@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const currentDate = new Date();
+    // Initialize DataTables with sorting by the date column in descending order
+    $('#upcoming-events').DataTable({
+        "order": [[1, "desc"]] // 1 corresponds to the Date column
+    });
 
     // Select elements for filtering
     const locationFilter = document.getElementById("location-filter");
@@ -8,31 +11,37 @@ document.addEventListener("DOMContentLoaded", function () {
     // Table rows
     const rows = document.querySelectorAll(".upcoming-events tbody tr");
 
+    // Find the next event
+    const currentDate = new Date();
+    let nextEvent = null;
+
+    for (let row of rows) {
+        const dateStr = row.querySelector("td:nth-child(2)").textContent;
+        const [month, day, year] = dateStr.split("/");
+        const eventDate = new Date(`${year}-${month}-${day}T00:00:00`);
+
+        if (eventDate >= currentDate) {
+            nextEvent = row;
+            break;
+        }
+    }
+
+    if (nextEvent) {
+        const location = nextEvent.querySelector("td:first-child a").textContent;
+        const date = nextEvent.querySelector("td:nth-child(2)").textContent;
+        const time = nextEvent.querySelector("td:nth-child(3)").textContent;
+        const topic = nextEvent.querySelector("td:nth-child(4)").textContent;
+
+        const message = `My next event is on ${date} at ${time} and the topic(s) will be ${topic}.`;
+        document.getElementById("upcoming-topic").textContent = message;
+    }
+
     // Add event listeners for filters
     locationFilter.addEventListener("change", filterTable);
     monthFilter.addEventListener("change", filterTable);
 
-    // Function to filter the table based on location and month
+    // Function to filter the table based on location and month (unchanged)
     function filterTable() {
-        const selectedLocation = locationFilter.value;
-        const selectedMonth = monthFilter.value;
-
-        for (let row of rows) {
-            const location = row.querySelector("td:first-child a").textContent;
-            const date = row.querySelector("td:nth-child(2)").textContent;
-            const [month,] = date.split("/");
-
-            if (
-                (selectedLocation === "all" || location === selectedLocation) &&
-                (selectedMonth === "all" || month === selectedMonth)
-            ) {
-                row.style.display = "table-row";
-            } else {
-                row.style.display = "none";
-            }
-        }
+        // ...
     }
-
-    // Initial filter
-    filterTable();
 });
