@@ -1,21 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Find the current date
     const currentDate = new Date();
 
-    // Calculate the next date (one week later)
-    currentDate.setDate(currentDate.getDate() + 7);
+    const rows = document.querySelectorAll(".upcoming-topics tbody tr");
 
-    // Format the next date as "MM/DD/YYYY"
-    const nextDate = `${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`;
+    for (let row of rows) {
+        const dateString = row.querySelector("td:first-child").innerText;
+        const [month, day, year] = dateString.split("/");
+        const rowDate = new Date(`${year}-${month}-${day}`);
 
-    // Get the topics number from the first row
-    const firstRow = document.querySelector(".upcoming-topics tbody tr:first-child");
-    const topicsNumber = parseInt(firstRow.querySelector("td:nth-child(2)").textContent.match(/\d+/)[0]);
+        if (rowDate >= currentDate) {
+            const topic = row.querySelector("td:nth-child(2)").innerText;
+            const message = `The next topic is ${topic}`;
 
-    // Create a message for the upcoming topics
-    const message = `Next week's topic is ${nextDate}: Topic ${topicsNumber + 1}`;
-
-    // Display the message above the table with larger size and centered
-    const upcomingTopicsElement = document.getElementById("upcoming-topics");
-    upcomingTopicsElement.innerHTML = `<p class="large-text">${message}</p>`;
+            const upcomingTopicElement = document.getElementById("upcoming-topic");
+            upcomingTopicElement.querySelector(".large-text").textContent = message;
+            break;
+        }
+    }
 });
