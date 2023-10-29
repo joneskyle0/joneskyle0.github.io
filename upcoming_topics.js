@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextDate = `${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`;
 
     // Get the topics number from the first row
-    const firstRow = document.querySelector(".upcoming-topicss tbody tr:first-child");
+    const firstRow = document.querySelector(".upcoming-topics tbody tr:first-child");
     const topicsNumber = parseInt(firstRow.querySelector("td:nth-child(2)").textContent.match(/\d+/)[0]);
 
     // Create a message for the upcoming topics

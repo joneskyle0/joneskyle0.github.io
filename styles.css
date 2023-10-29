@@ -80,7 +80,7 @@ a:hover {
 }
 .upcoming-topics th, .upcoming-topics td {
     border: 1px solid #ddd; /* Add border to table cells */
-    padding: 10px; /* Add padding to cells for spacing */
+    padding: 5px; /* Add padding to cells for spacing */
     text-align: center; /* Center-align cell content */
 }
 .upcoming-topics th {
