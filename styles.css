@@ -82,6 +82,7 @@ a:hover {
     border: 1px solid #ddd; /* Add border to table cells */
     padding: 5px; /* Add padding to cells for spacing */
     text-align: center; /* Center-align cell content */
+    width: 50%;
 }
 .upcoming-topics th {
     background-color: #007BFF; /* Header background color */
