@@ -72,35 +72,40 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Additional CSS to center, format, and add zebra striping to the table */
+/* Table styles for upcoming events */
 .upcoming-events {
-margin: 0 auto; /* Center the table horizontally */
+    margin: 0 auto; /* Center the table horizontally */
     width: 80%; /* Adjust the table width as needed */
     border-collapse: collapse; /* Remove default cell spacing */
 }
+
 .upcoming-events th, .upcoming-events td {
     border: 1px solid #ddd; /* Add border to table cells */
-    padding: 5px; /* Add padding to cells for spacing */
+    padding: 10px; /* Add padding to cells for spacing */
     text-align: center; /* Center-align cell content */
-    width: 50%;
 }
+
 .upcoming-events th {
     background-color: #007BFF; /* Header background color */
     color: #fff; /* Header text color */
 }
+
 .upcoming-events tbody tr:nth-child(odd) {
     background-color: #f0f0f0; /* Zebra striping for odd rows */
 }
+
 .upcoming-events tbody tr:nth-child(even) {
     background-color: #e0e0e0; /* Zebra striping for even rows */
 }
+
 .upcoming-events th, .upcoming-events td {
     font-size: 16px; /* Increase text size */
 }
 
+/* Style for the large text */
 .large-text {
-    font-size: 24px; /* Increase text size */
-    text-align: center; /* Center-align text */
-    margin-top: 20px; /* Add space above the text */
-    margin-bottom: 20px; /* Add space below the text */
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

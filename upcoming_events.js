@@ -1,30 +1,38 @@
 document.addEventListener("DOMContentLoaded", function () {
     const currentDate = new Date();
 
+    // Select elements for filtering
+    const locationFilter = document.getElementById("location-filter");
+    const monthFilter = document.getElementById("month-filter");
+
+    // Table rows
     const rows = document.querySelectorAll(".upcoming-events tbody tr");
 
-    let nextEventDate = null;
-    let nextEventTime = null;
-    let nextEventTopic = null;
+    // Add event listeners for filters
+    locationFilter.addEventListener("change", filterTable);
+    monthFilter.addEventListener("change", filterTable);
 
-    for (let row of rows) {
-        const dateString = row.querySelector("td:nth-child(2)").innerText;
-        const [month, day, year] = dateString.split("/");
-        const rowDate = new Date(`${year}-${month}-${day}T19:00:00`); // Assume 7:00 PM for the event time
+    // Function to filter the table based on location and month
+    function filterTable() {
+        const selectedLocation = locationFilter.value;
+        const selectedMonth = monthFilter.value;
 
-        if (rowDate >= currentDate) {
-            nextEventDate = dateString;
-            nextEventTime = row.querySelector("td:nth-child(3)").innerText;
-            nextEventTopic = row.querySelector("td:nth-child(4)").innerText;
-            break;
+        for (let row of rows) {
+            const location = row.querySelector("td:first-child a").textContent;
+            const date = row.querySelector("td:nth-child(2)").textContent;
+            const [month,] = date.split("/");
+
+            if (
+                (selectedLocation === "all" || location === selectedLocation) &&
+                (selectedMonth === "all" || month === selectedMonth)
+            ) {
+                row.style.display = "table-row";
+            } else {
+                row.style.display = "none";
+            }
         }
     }
 
-    const upcomingTopicElement = document.getElementById("upcoming-topic");
-    if (nextEventDate && nextEventTime && nextEventTopic) {
-        const message = `My next event is ${nextEventDate} at ${nextEventTime} and the topic(s) will be ${nextEventTopic}`;
-        upcomingTopicElement.querySelector(".large-text").textContent = message;
-    } else {
-        upcomingTopicElement.querySelector(".large-text").textContent = "Stay tuned for upcoming events!";
-    }
+    // Initial filter
+    filterTable();
 });
