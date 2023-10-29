@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upcoming Events</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.7/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="styles.css"> <!-- Link to the stylesheet -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation menu (copied from index.html) -->
     <header>
         <h1>Trivia with Kyle</h1>
     </header>
@@ -17,22 +16,9 @@
         <a href="trivia_cup.html">Ellison Trivia Cup Scores</a>
         <a href="upcoming_events.html">Upcoming Events</a>
     </nav>
-    
-    <div id="next-event-row" class="upcoming-events">
-        <table>
-            <thead>
-                <tr>
-                    <th>Location</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Topic</th>
-                </tr>
-            </thead>
-        </table>
-    </div>
 
- <!-- Filter options for location and month -->
- <div id="filter-options">
+ 
+  <div id="filter-options">
     <label for="location-filter">Filter by Location:</label>
     <select id="location-filter">
         <option value="all">All Locations</option>
@@ -141,11 +127,10 @@
             </tr>
         </tbody>
     </table>
-    <!-- Include jQuery and DataTables JavaScript (CDN) -->
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.7/js/jquery.dataTables.min.js"></script>
 
-    <!-- Include the JavaScript file -->
     <script src="upcoming_events.js"></script>
 </body>
 </html>

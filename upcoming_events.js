@@ -1,49 +1,68 @@
+// Wait for the DOM to be ready
 document.addEventListener("DOMContentLoaded", function () {
-    // Initialize DataTables with sorting by the date column in descending order
-    const table = $('#upcoming-events').DataTable({
-        "order": [[1, "desc"]] // 1 corresponds to the Date column
-    });
+    // Get reference to the table
+    const table = document.querySelector("#next-event-row table");
 
-    // Select elements for filtering
+    // Get reference to filter elements
     const locationFilter = document.getElementById("location-filter");
     const monthFilter = document.getElementById("month-filter");
-    const nextEventRow = document.getElementById("next-event-row");
 
-    // Table rows
-    const rows = document.querySelectorAll(".upcoming-events tbody tr");
-
-    // Find the next event
-    const currentDate = new Date();
-    let nextEvent = null;
-
-    for (let row of rows) {
-        const dateStr = row.querySelector("td:nth-child(2)").textContent;
-        const [month, day, year] = dateStr.split("/");
-        const eventDate = new Date(`${year}-${month}-${day}T00:00:00`);
-
-        if (eventDate >= currentDate) {
-            nextEvent = row;
-            break;
-        }
-    }
-
-    if (nextEvent) {
-        const location = nextEvent.querySelector("td:first-child a").textContent;
-        const date = nextEvent.querySelector("td:nth-child(2)").textContent;
-        const time = nextEvent.querySelector("td:nth-child(3)").textContent;
-        const topic = nextEvent.querySelector("td:nth-child(4)").textContent;
-
-        const message = `My next event is on ${date} at ${location} and the topic(s) will be ${topic}.`;
-        nextEventRow.innerHTML = `<table><thead><tr><th>Location</th><th>Date</th><th>Time</th><th>Topic</th></tr></thead></table><tbody><tr><td>${location}</td><td>${date}</td><td>${time}</td><td>${topic}</td></tr></tbody>`;
-        document.getElementById("upcoming-topic").textContent = message;
-    }
-
-    // Add event listeners for filters
+    // Add event listeners for filtering
     locationFilter.addEventListener("change", filterTable);
     monthFilter.addEventListener("change", filterTable);
 
-    // Function to filter the table based on location and month (unchanged)
+    // Find and display the next event
+    findNextEvent();
+
+    // Function to filter the table
     function filterTable() {
-        // ...
+        const locationValue = locationFilter.value;
+        const monthValue = monthFilter.value;
+
+        for (const row of table.querySelectorAll("tbody tr")) {
+            const cells = row.querySelectorAll("td");
+            const location = cells[0].textContent;
+            const date = cells[1].textContent;
+            const eventMonth = new Date(date).getMonth() + 1;
+
+            if (
+                (locationValue === "all" || location === locationValue) &&
+                (monthValue === "all" || eventMonth.toString() === monthValue)
+            ) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        }
+    }
+
+    // Function to find and display the next event
+    function findNextEvent() {
+        const today = new Date();
+        let closestEventDate = null;
+        let closestEventTime = null;
+        let closestEventTopics = null;
+
+        for (const row of table.querySelectorAll("tbody tr")) {
+            const cells = row.querySelectorAll("td");
+            const date = new Date(cells[1].textContent);
+            const time = cells[2].textContent;
+            const topics = cells[3].textContent;
+
+            if (date >= today) {
+                if (!closestEventDate || date < closestEventDate) {
+                    closestEventDate = date;
+                    closestEventTime = time;
+                    closestEventTopics = topics;
+                }
+            }
+        }
+
+        if (closestEventDate) {
+            const formattedDate = closestEventDate.toLocaleDateString();
+            console.log(
+                `My next event is on ${formattedDate} at ${closestEventTime} and the topic(s) will be ${closestEventTopics}`
+            );
+        }
     }
 });
