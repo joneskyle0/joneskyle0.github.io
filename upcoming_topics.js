@@ -8,14 +8,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // Format the next date as "MM/DD/YYYY"
     const nextDate = `${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`;
 
-    // Get the topic number from the first row
-    const firstRow = document.querySelector(".upcoming-topics tbody tr:first-child");
-    const topicNumber = parseInt(firstRow.querySelector("td:nth-child(2)").textContent.match(/\d+/)[0]);
+    // Get the topics number from the first row
+    const firstRow = document.querySelector(".upcoming-topicss tbody tr:first-child");
+    const topicsNumber = parseInt(firstRow.querySelector("td:nth-child(2)").textContent.match(/\d+/)[0]);
 
-    // Create a message for the upcoming topic
-    const message = `Next week's topic is ${nextDate}: Topic ${topicNumber + 1}`;
+    // Create a message for the upcoming topics
+    const message = `Next week's topics is ${nextDate}: Topics ${topicsNumber + 1}`;
 
     // Display the message above the table with larger size and centered
-    const upcomingTopicElement = document.getElementById("upcoming-topic");
-    upcomingTopicElement.innerHTML = `<p class="large-text">${message}</p>`;
+    const upcomingTopicsElement = document.getElementById("upcoming-topics");
+    upcomingTopicsElement.innerHTML = `<p class="large-text">${message}</p>`;
 });
