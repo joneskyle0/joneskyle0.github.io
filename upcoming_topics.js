@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Create a message for the upcoming topic
     const message = `Next week's topic is ${nextDate}: Topic ${topicNumber + 1}`;
 
-    // Display the message above the table
+    // Display the message above the table with larger size and centered
     const upcomingTopicElement = document.getElementById("upcoming-topic");
-    upcomingTopicElement.querySelector(".large-text").textContent = message;
+    upcomingTopicElement.innerHTML = `<p class="large-text">${message}</p>`;
 });
