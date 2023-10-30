@@ -18,7 +18,7 @@
     <div class="container">
         <h2>About Trivia with Kyle</h2>
         <p>
-            Check out your <a href="trivia_cup.html">Ellison Trivia Cup Scores</a> or see what's topics are coming up in our <a href="upcoming_events.html">Upcoming Events</a>.
+            Check out your <a href="trivia_cup.html">Ellison Trivia Cup Scores</a> or see what topics are coming up in our <a href="upcoming_events.html">Upcoming Events</a>.
         </p>
     </div>
     <h1>Question of the Day</h1>

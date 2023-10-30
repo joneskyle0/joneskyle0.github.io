@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upcoming Events</title>
     <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 </head>
 <body>
     <header>
@@ -14,16 +17,17 @@
         <a href="index.html">Home</a>
         <a href="trivia_cup.html">Ellison Trivia Cup Scores</a>
         <a href="upcoming_events.html">Upcoming Events</a>
-    </nav>>
-    <table class="upcoming-events">
-        <thead>
-            <tr>
-                <th>Location</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Topic</th>
-            </tr>
-        </thead>
+    </nav>
+    <div class="table-responsive">
+        <table class="upcoming-events">
+            <thead>
+                <tr>
+                    <th class="header">Location</th>
+                    <th class="header">Date</th>
+                    <th class="header">Time</th>
+                    <th class="header">Topic</th>
+                </tr>
+            </thead>
         <tbody>
             <tr>
                 <td><a href="https://maps.app.goo.gl/jBxnuXqzXdZQZxFQ8">Ellison Brewery and Spirits</a></td>
@@ -99,5 +103,28 @@
             </tr>
         </tbody>
     </table>
+</div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Initialize DataTable with "datetime-moment" sorting
+            $('.upcoming-events').DataTable({
+                columnDefs: [
+                    {
+                        type: 'datetime-moment',
+                        targets: 1, // Second column (0-based index) is the "Date" column
+                        render: function (data, type, row) {
+                            // Format the date as "M-D-Y" using Moment.js
+                            if (type === 'sort') {
+                                return moment(data, 'M/D/YYYY').valueOf();
+                            }
+                            return moment(data, 'M/D/YYYY').format('M-D-Y');
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
 </body>
 </html>
