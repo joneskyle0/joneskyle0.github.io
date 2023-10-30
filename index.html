@@ -21,59 +21,5 @@
             Check out your <a href="trivia_cup.html">Ellison Trivia Cup Scores</a> or see what topics are coming up in our <a href="upcoming_events.html">Upcoming Events</a>.
         </p>
     </div>
-    <p id="event-details">Fetching event information...</p>
-
-    <script>
-        function formatDate(date) {
-            return date.toLocaleDateString("en-US", { month: 'short', day: 'numeric', year: 'numeric' });
-        }
-
-        // Fetch events data using AJAX
-        const xhr = new XMLHttpRequest();
-        xhr.open("GET", "upcoming_events.html", true);
-
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                const scriptText = xhr.responseText.match(/<script[^>]*>([\s\S]*?)<\/script>/)[1];
-                const script = new Function(scriptText);
-                script();
-
-                const nextEvent = findNextEvent(eventData);
-
-                const eventDetails = document.getElementById("event-details");
-                if (nextEvent) {
-                    const location = nextEvent.location;
-                    const date = formatDate(new Date(nextEvent.date));
-                    const time = nextEvent.time;
-                    const topic = nextEvent.topic;
-
-                    eventDetails.textContent = `My next event is at ${location} on ${date} at ${time} and the topic(s) will be ${topic}.`;
-                } else {
-                    eventDetails.textContent = "No upcoming events found.";
-                }
-            }
-        };
-
-        xhr.send();
-
-        function findNextEvent(events) {
-            const today = new Date();
-            let closestDate = null;
-            let closestEvent = null;
-
-            events.forEach((event) => {
-                const eventDate = new Date(event.date);
-
-                if (eventDate >= today) {
-                    if (!closestDate || eventDate < closestDate) {
-                        closestDate = eventDate;
-                        closestEvent = event;
-                    }
-                }
-            });
-
-            return closestEvent;
-        }
-    </script>
 </body>
 </html>
