@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upcoming Events</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="styles.css">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
@@ -110,6 +110,37 @@
     <!-- Include DataTables JavaScript via CDN -->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
+<script>
+    // Define your event data as an array of objects
+    const eventData = [
+        {
+            "location": "Ellison Brewery and Spirits",
+            "date": "2023-10-25",
+            "time": "7:00 PM and 8:00 PM",
+            "topic": "Harry Potter"
+        },
+        {
+            "location": "Ellison Brewery and Spirits",
+            "date": "2023-11-01",
+            "time": "7:00 PM and 8:00 PM",
+            "topic": "General Trivia"
+        },
+        {
+            "location": "Ellison Brewery and Spirits",
+            "date": "2023-11-08",
+            "time": "7:00 PM and 8:00 PM",
+            "topic": "Star Wars and Lord of The Rings"
+        },
+        // Add more events as needed
+    ];
+
+    // Return the event data as JSON
+    const eventDataJson = JSON.stringify(eventData);
+
+    // Output the JSON data
+    document.write(eventDataJson);
+</script>
+
     <script>
         $(document).ready(function(){
             // Initialize DataTable with "datetime-moment" sorting
@@ -129,7 +160,6 @@
                 ]
             });
         });
-        </script>
-        
+    </script>
 </body>
 </html>

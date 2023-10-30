@@ -34,8 +34,11 @@
 
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                const events = JSON.parse(xhr.responseText);
-                const nextEvent = findNextEvent(events);
+                const scriptText = xhr.responseText.match(/<script[^>]*>([\s\S]*?)<\/script>/)[1];
+                const script = new Function(scriptText);
+                script();
+
+                const nextEvent = findNextEvent(eventData);
 
                 const eventDetails = document.getElementById("event-details");
                 if (nextEvent) {
