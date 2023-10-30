@@ -1,5 +1,5 @@
 <?php
-$host = "DESKTOP-13JO25K";
+$host = "localhost";
 $username = "joneskyle0";
 $password = "Vr++i8^lnr/M,f:6\*i8";
 $database = "qotd";
