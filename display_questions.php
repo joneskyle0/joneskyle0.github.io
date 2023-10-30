@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 $host = "localhost";
 $username = "joneskyle0";
 $password = "Vr++i8^lnr/M,f:6\*i8";
@@ -12,6 +15,19 @@ if (!$connection) {
 
 $query = "SELECT * FROM Questions";
 $result = mysqli_query($connection, $query);
+
+// After executing the SQL queries, add debugging output
+if ($result) {
+    echo "SQL query for questions executed successfully.<br>";
+} else {
+    echo "SQL query for questions failed: " . mysqli_error($connection) . "<br>";
+}
+
+if ($questions) {
+    echo "Questions fetched successfully.<br>";
+} else {
+    echo "No questions found.<br>";
+}
 
 $questions = array();
 
