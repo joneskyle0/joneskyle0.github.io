@@ -122,7 +122,9 @@
                             return moment(data, 'M/D/YYYY').format('M-D-Y');
                         }
                     }
-                ]
+                ],
+                order: [[1, 'desc']], // Set the default sorting order to descending on the "Date" column
+                searching: false
             });
         });
     </script>
