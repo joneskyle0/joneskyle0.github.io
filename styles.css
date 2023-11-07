@@ -132,3 +132,20 @@ table.upcoming-events th.header {
 table.upcoming-events th.header, table.upcoming-events td {
     padding: 10px; /* Increased padding for better readability */
 }
+
+
+  #next-event {
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+  }
+
+  #next-event p {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  #next-event span {
+    color: #007bff;
+  }

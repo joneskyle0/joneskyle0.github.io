@@ -17,7 +17,10 @@
         <a href="index.html">Home</a>
         <a href="trivia_cup.html">Ellison Trivia Cup Scores</a>
         <a href="upcoming_events.html">Upcoming Events</a>
-    </nav>
+    </nav><div id="next-event">
+        <p>My next event is at <span id="event-location"></span> on <span id="event-date"></span> at <span id="event-time"></span>. The topic(s) will be <span id="event-topic"></span>.</p>
+    </div>
+    </div>
     <div class="table-responsive">
         <table class="upcoming-events">
             <thead>
@@ -108,26 +111,56 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function(){
-            // Initialize DataTable with "datetime-moment" sorting
-            $('.upcoming-events').DataTable({
-                columnDefs: [
-                    {
-                        type: 'datetime-moment',
-                        targets: 1, // Second column (0-based index) is the "Date" column
-                        render: function (data, type, row) {
-                            // Format the date as "M-D-Y" using Moment.js
-                            if (type === 'sort') {
-                                return moment(data, 'M/D/YYYY').valueOf();
-                            }
-                            return moment(data, 'M/D/YYYY').format('M-D-Y');
-                        }
+          // Initialize DataTable with "datetime-moment" sorting
+          $('.upcoming-events').DataTable({
+            columnDefs: [
+              {
+                type: 'datetime-moment',
+                targets: 1,
+                render: function (data, type, row) {
+                  if (type === 'sort') {
+                    return moment(data, 'M/D/YYYY').valueOf();
+                  }
+        
+                  // Find the next event
+                  var currentDate = moment(); // Get the current date and time
+                  var tableData = $('.upcoming-events').DataTable().data(); // Get the table data
+                  var nextEvent = null;
+        
+                  for (var i = 0; i < tableData.length; i++) {
+                    var eventDate = moment(tableData[i][1], 'M/D/YYYY');
+                    var eventTime = tableData[i][2];
+                    var eventTopic = tableData[i][3];
+                    var eventLocation = $(tableData[i][0]).text().trim(); // Extract and trim the text after the tag
+        
+                    if (eventDate.isSameOrAfter(currentDate, 'day')) {
+                      nextEvent = {
+                        date: eventDate.format('M-D-Y'),
+                        time: eventTime,
+                        topic: eventTopic,
+                        location: eventLocation
+                      };
+                      break; // Exit the loop after finding the next event
                     }
-                ],
-                order: [[1, 'desc']], // Set the default sorting order to descending on the "Date" column
-                searching: false
-            });
-            $('.dataTables_length').hide();
+                  }
+        
+                  if (nextEvent) {
+                    document.getElementById('event-location').textContent = nextEvent.location;
+                    document.getElementById('event-date').textContent = nextEvent.date;
+                    document.getElementById('event-time').textContent = nextEvent.time;
+                    document.getElementById('event-topic').textContent = nextEvent.topic;
+                  }
+        
+                  return moment(data, 'M/D/YYYY').format('M-D-Y');
+                }
+              }
+            ],
+            order: [[1, 'desc']], // Set the default sorting order to descending on the "Date" column
+            searching: false
+          });
+          $('.dataTables_length').hide();
         });
-    </script>
+        </script>
+        
 </body>
 </html>
