@@ -20,6 +20,31 @@
         <p>
             Check out your <a href="trivia_cup.html">Ellison Trivia Cup Scores</a> or see what topics are coming up in our <a href="upcoming_events.html">Upcoming Events</a>.
         </p>
+<!--         <div id="question-of-the-day">
+            <p>Today's question of the day is:</p>
+            <p id="random-question"></p>
+        </div> -->
     </div>
+
+<!--     <script>
+        // Make an AJAX request to fetch a random question from the database
+        var xhttp = new XMLHttpRequest();
+// Add event listener to handle the state change of the XMLHttpRequest object
+xhttp.onreadystatechange = function() {
+    // Check if the request is completed and the response is successful
+    if (this.readyState == 4 && this.status == 200) {
+        // Parse the response JSON into a JavaScript object
+        var question = JSON.parse(this.responseText);
+        // Update the inner text of the element with id "random-question" to display the question
+        document.getElementById("random-question").innerText = question;
+    }
+};
+        // Update the inner text of the element with id "random-question" to display the question
+        document.getElementById("random-question").innerText = question;
+    }
+};
+        xhttp.open("GET", "get_random_question.php", true);
+        xhttp.send(); 
+    </script> -->
 </body>
 </html>
