@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="styles.css">
     <style>
     @font-face {
-      font-family: 'Special Elite';
-      src: url('fonts/SpecialElite-Regular.ttf') format('ttf'),
+      font-family: 'Bungee Spice';
+      src: url('fonts/BungeeSpice-Regular.ttf') format('ttf'),
       font-weight: normal;
       font-style: normal;
     }
@@ -17,6 +17,36 @@
     }
     h2 {
       margin-top: 20px; /* Add spacing between the heading and word art */
+    }
+    
+    .word-art-container {
+      width: 50%;
+      margin: 20px auto;
+      background-color: #000;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .word-art {
+      font-family: 'Bungee Spice', cursive;
+      font-size: 36px;
+      color: #e74c3c;
+      transform-origin: center;
+      transform: scale(1);
+      transition: transform 0.3s ease-in-out;
+      text-align: center;
+    }
+
+    .word-art-container:hover .word-art {
+      transform: scale(1.2);
+    }
+    @media (max-width: 600px) {
+      .word-art {
+        font-size: 24px;
+      }
     }
     </style>
 </head>
