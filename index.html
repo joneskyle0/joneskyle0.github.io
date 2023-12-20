@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trivia with Kyle</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite">
+    <style>
+        body {
+      text-align: center; /* Center the content */
+    }
+    h2 {
+      margin-top: 20px; /* Add spacing between the heading and word art */
+    }
+    </style>
 </head>
 <body>
     <header>
@@ -12,39 +21,17 @@
     </header>
     <nav>
         <a href="#">Home</a>
-        <a href="trivia_cup.html">Ellison Trivia Cup Scores</a>
-        <a href="upcoming_events.html">Upcoming Events</a>
+        <a href="trivia_cup.html">Season 2 Ellison Trivia Cup Scores</a>
+        <a href="upcoming_events.html">Upcoming Topics</a>
     </nav>
     <div class="container">
         <h2>About Trivia with Kyle</h2>
         <p>
-            Check out your <a href="trivia_cup.html">Ellison Trivia Cup Scores</a> or see what topics are coming up in our <a href="upcoming_events.html">Upcoming Events</a>.
+            Check out your <a href="trivia_cup.html">Ellison Trivia Cup Scores</a> or see what topics are coming up at <a href="upcoming_events.html">Upcoming Topics</a>.
         </p>
-<!--         <div id="question-of-the-day">
-            <p>Today's question of the day is:</p>
-            <p id="random-question"></p>
-        </div> -->
     </div>
-
-<!--     <script>
-        // Make an AJAX request to fetch a random question from the database
-        var xhttp = new XMLHttpRequest();
-// Add event listener to handle the state change of the XMLHttpRequest object
-xhttp.onreadystatechange = function() {
-    // Check if the request is completed and the response is successful
-    if (this.readyState == 4 && this.status == 200) {
-        // Parse the response JSON into a JavaScript object
-        var question = JSON.parse(this.responseText);
-        // Update the inner text of the element with id "random-question" to display the question
-        document.getElementById("random-question").innerText = question;
-    }
-};
-        // Update the inner text of the element with id "random-question" to display the question
-        document.getElementById("random-question").innerText = question;
-    }
-};
-        xhttp.open("GET", "get_random_question.php", true);
-        xhttp.send(); 
-    </script> -->
+    <div class="word-art-container">
+        <div class="word-art">Trivia is Coming <br>Season 2 of Ellison Trivia Cup begins January 3rd</div>
+    </div>
 </body>
 </html>

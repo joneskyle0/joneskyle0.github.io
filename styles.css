@@ -149,3 +149,28 @@ table.upcoming-events th.header, table.upcoming-events td {
   #next-event span {
     color: #007bff;
   }
+
+
+  .word-art-container {
+    width: 70%;
+    height: 300px;
+    margin: 20px auto;
+    background-color: #000;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .word-art {
+    font-family: 'Special Elite', cursive;
+    font-size: 48px;
+    color: #e74c3c;
+    transform-origin: center;
+    transform: scale(1); /* Initial scale */
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .word-art-container:hover .word-art {
+    transform: scale(1.5); /* Scale on hover (adjust as needed) */
+  }
