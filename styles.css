@@ -172,5 +172,5 @@ table.upcoming-events th.header, table.upcoming-events td {
   }
 
   .word-art-container:hover .word-art {
-    transform: scale(1.5); /* Scale on hover (adjust as needed) */
+    transform: scale(1.2); /* Scale on hover (adjust as needed) */
   }
