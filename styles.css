@@ -9,7 +9,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: #2c3e50;
+    color: #ecf0f1;
 }
 
 /* Style the header */
@@ -77,79 +78,50 @@ a:hover {
 
 /* Table styles for upcoming events */
 .upcoming-events {
-    margin: 0 auto; /* Center the table horizontally */
-    width: 80%; /* Adjust the table width as needed */
-    border-collapse: collapse; /* Remove default cell spacing */
-}
-
-.upcoming-events th, .upcoming-events td {
-    border: 1px solid #ddd; /* Add border to table cells */
-    padding: 10px; /* Add padding to cells for spacing */
-    text-align: center; /* Center-align cell content */
-}
-
-.upcoming-events th {
-    background-color: #007BFF; /* Header background color */
-    color: #fff; /* Header text color */
-}
-
-.upcoming-events tbody tr:nth-child(odd) {
-    background-color: #f0f0f0; /* Zebra striping for odd rows */
-}
-
-.upcoming-events tbody tr:nth-child(even) {
-    background-color: #e0e0e0; /* Zebra striping for even rows */
-}
-
-.upcoming-events th, .upcoming-events td {
-    font-size: 16px; /* Increase text size */
-}
-
-table.upcoming-events {
-    width: 100%;
+    margin: 0 auto;
+    width: 80%;
     border-collapse: collapse;
 }
 
-table.upcoming-events th, table.upcoming-events td {
+.upcoming-events th, .upcoming-events td {
     border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
+    padding: 10px;
+    text-align: center;
 }
 
-table.upcoming-events th {
-    background-color: #f2f2f2;
-}
-
-@media (max-width: 600px) {
-    table.upcoming-events {
-        font-size: 14px;
-    }
-}
-
-table.upcoming-events th.header {
+.upcoming-events th {
     background-color: #007BFF;
     color: #fff;
-    font-weight: bold;
 }
 
-table.upcoming-events th.header, table.upcoming-events td {
-    padding: 10px; /* Increased padding for better readability */
+.upcoming-events tbody tr:nth-child(odd) {
+    background-color: #ecf0f1;
 }
 
+.upcoming-events tbody tr:nth-child(odd) td {
+    color: #34495e; /* Match font color to the background color of even rows */
+}
 
-  #next-event {
+.upcoming-events tbody tr:nth-child(even) {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+}
+
+/* Additional styling for the 'Next Event' section */
+#next-event {
     text-align: center;
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: #3498db;
+    color: #ecf0f1;
     border-radius: 10px;
-  }
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-  #next-event p {
+#next-event p {
     font-size: 24px;
     font-weight: bold;
-  }
+}
 
-  #next-event span {
-    color: #007bff;
-  }
-
+#next-event span {
+    color: #ecf0f1;
+}
