@@ -1,0 +1,49 @@
+/* Table styles for upcoming events */
+.upcoming-events {
+    margin: 0 auto;
+    width: 80%;
+    border-collapse: collapse;
+}
+
+.upcoming-events th, .upcoming-events td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.upcoming-events th {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+.upcoming-events tbody tr:nth-child(odd) {
+    background-color: #ecf0f1;
+}
+
+.upcoming-events tbody tr:nth-child(odd) td {
+    color: #34495e; /* Match font color to the background color of even rows */
+}
+
+.upcoming-events tbody tr:nth-child(even) {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+}
+
+/* Additional styling for the 'Next Event' section */
+#next-event {
+    text-align: center;
+    padding: 20px;
+    background-color: #3498db;
+    color: #ecf0f1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#next-event p {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#next-event span {
+    color: #ecf0f1;
+}
