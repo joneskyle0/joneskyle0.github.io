@@ -1,0 +1,42 @@
+
+body {
+    text-align: center; /* Center the content */
+  }
+  h2 {
+    margin-top: 20px; /* Add spacing between the heading and word art */
+  }
+  
+  .word-art-container {
+    width: 50%;
+    margin: 20px auto;
+    background-color: #000;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .word-art {
+    font-family: 'Bungee Spice';
+    font-size: 36px;
+    color: #e74c3c;
+    transform-origin: center;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+  }
+
+  .word-art-container:hover .word-art {
+    transform: scale(1.2);
+  }
+  @media (max-width: 600px) {
+    .word-art {
+      font-size: 24px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
