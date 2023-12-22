@@ -1,12 +1,12 @@
 
 body {
-    text-align: center; /* Center the content */
+    text-align: center;
   }
-  h2 {
-    margin-top: 20px; /* Add spacing between the heading and word art */
+h2 {
+    margin-top: 20px;
   }
   
-  .word-art-container {
+.word-art-container {
     width: 50%;
     margin: 20px auto;
     background-color: #000;
@@ -17,7 +17,7 @@ body {
     flex-direction: column;
   }
 
-  .word-art {
+.word-art {
     font-family: 'Bungee Spice';
     font-size: 36px;
     color: #e74c3c;
@@ -27,15 +27,16 @@ body {
     text-align: center;
   }
 
-  .word-art-container:hover .word-art {
+.word-art-container:hover .word-art {
     transform: scale(1.2);
   }
+
   @media (max-width: 600px) {
     .word-art {
       font-size: 24px;
     }
 
-    img {
+img {
       max-width: 100%;
       height: auto;
     }
