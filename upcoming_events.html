@@ -96,53 +96,6 @@
 </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    <script>
-        $(document).ready(function(){
-          // Initialize DataTable with "datetime-moment" sorting
-          $('.upcoming-events').DataTable({
-            columnDefs: [
-              {
-                type: 'datetime-moment',
-                targets: 0,
-                render: function (data, type, row) {
-                  if (type === 'sort') {
-                    return moment(data, 'M/D/YYYY').valueOf();
-                  }
-        
-                  // Find the next event
-                  var currentDate = moment(); // Get the current date and time
-                  var tableData = $('.upcoming-events').DataTable().data(); // Get the table data
-                  var nextEvent = null;
-        
-                  for (var i = 0; i < tableData.length; i++) {
-                    var eventDate = moment(tableData[i][0], 'M/D/YYYY');
-                    var eventTime = tableData[i][1];
-                    var eventTopic = tableData[i][2];
-        
-                    if (eventDate.isSameOrAfter(currentDate, 'day')) {
-                      nextEvent = {
-                        date: eventDate.format('M-D-Y'),
-                        time: eventTime,
-                        topic: eventTopic
-                      };
-                      break; // Exit the loop after finding the next event
-                    }
-                  }
-        
-                  if (nextEvent) {
-                    document.getElementById('event-date').textContent = nextEvent.date;
-                    document.getElementById('event-time').textContent = nextEvent.time;
-                    document.getElementById('event-topic').textContent = nextEvent.topic;
-                  }
-        
-                  return moment(data, 'M/D/YYYY').format('M-D-Y');
-                }
-              }
-            ],
-            searching: false
-          });
-          $('.dataTables_length').hide();
-        });
-    </script>
+    <script src="js/upcoming_events.js"></script>
 </body>
 </html>
