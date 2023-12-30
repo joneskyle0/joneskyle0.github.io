@@ -67,7 +67,6 @@ header {
         border-bottom: 1px solid #34495e; /* Add a border between menu items */
         width: 100%; /* Make links take up full width */
         box-sizing: border-box; /* Include padding and border in the width calculation */
-        text-align: center; /* Center text */
     }
         /* Update the container styles for smaller screens */
     .container {
@@ -75,7 +74,8 @@ header {
         width: 100%;
         margin: 0; /* Remove margin */
         padding: 0; /* Remove padding */
-        display: flex;
+        display: inline-block;
+        text-align: center;
     }
 }
 
