@@ -72,6 +72,7 @@ header {
         /* Update the container styles for smaller screens */
     .container {
         max-width: 100%; /* Set the maximum width to 100% */
+        width: 100%;
         margin: 0; /* Remove margin */
         padding: 0; /* Remove padding */
     }
@@ -79,6 +80,7 @@ header {
     header {
         width: 100%;
     
+    }
 }
 
 
