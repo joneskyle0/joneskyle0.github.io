@@ -1,0 +1,6 @@
+node_modules/
+out/
+engine/lib/
+engine/build/
+public/vendor/
+.DS_Store

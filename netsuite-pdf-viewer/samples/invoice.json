@@ -1,0 +1,111 @@
+{
+  "@labels": {
+    "tranid": "Invoice #",
+    "trandate": "Date",
+    "duedate": "Due Date",
+    "terms": "Terms",
+    "otherrefnum": "PO #",
+    "salesrep": "Sales Rep",
+    "shipmethod": "Ship Via",
+    "billaddress": "Bill To",
+    "shipaddress": "Ship To",
+    "subtotal": "Subtotal",
+    "taxtotal": "Tax",
+    "total": "Total",
+    "memo": "Memo",
+    "item": "Item",
+    "quantity": "Quantity",
+    "rate": "Rate",
+    "amount": "Amount",
+    "options": "Options",
+    "description": "Description"
+  },
+  "@assets": {
+    "media.nl?id=1234": "logo.svg"
+  },
+  "@options": {
+    "locale": "en_US"
+  },
+  "companyInformation": {
+    "companyName": "Acme Widgets, Inc.",
+    "legalName": "Acme Widgets, Inc.",
+    "addressText": "500 Industrial Way\nSuite 200\nDenver CO 80202\nUnited States",
+    "phone": "(303) 555-0142",
+    "email": "ar@acmewidgets.example",
+    "url": "www.acmewidgets.example",
+    "logoUrl": "https://1234567.app.netsuite.com/core/media/media.nl?id=1234&c=1234567&h=abcdef"
+  },
+  "record": {
+    "@title": "Invoice",
+    "id": 1051,
+    "tranid": "INV-1051",
+    "trandate": "2026-11-07",
+    "duedate": "2026-12-07",
+    "entity": "Globex Corporation",
+    "otherrefnum": "PO-88213",
+    "terms": "Net 30",
+    "salesrep": "Jordan Lee",
+    "shipmethod": "UPS Ground",
+    "shipdate": "2026-11-08",
+    "status": "Open",
+    "currency": "USD",
+    "currencysymbol": "$",
+    "memo": "Thank you for your business. Please reference the invoice number with your payment.",
+    "billaddress": "Globex Corporation\nAttn: Accounts Payable\n1 Globex Plaza\nSpringfield IL 62701",
+    "shipaddress": "Globex Corporation\nReceiving Dock B\n45 Warehouse Road\nSpringfield IL 62703",
+    "subtotal": "3,470.00",
+    "discounttotal": "0.00",
+    "taxrate": "8.25",
+    "taxtotal": "286.28",
+    "shippingcost": "0.00",
+    "total": "$3,756.28",
+    "amountpaid": "0.00",
+    "amountremaining": "$3,756.28",
+    "item": [
+      {
+        "item": "WDG-100",
+        "description": "Standard Widget, anodized aluminum",
+        "quantity": "25",
+        "units": "Each",
+        "rate": "48.00",
+        "amount": "1,200.00",
+        "options": ""
+      },
+      {
+        "item": "WDG-200",
+        "description": "Heavy-duty Widget, powder coated",
+        "quantity": "10",
+        "units": "Each",
+        "rate": "135.00",
+        "amount": "1,350.00",
+        "options": "Color: Red"
+      },
+      {
+        "item": "SVC-INSTALL",
+        "description": "On-site installation and calibration (4 hours)",
+        "quantity": "4",
+        "units": "Hour",
+        "rate": "180.00",
+        "amount": "720.00",
+        "options": ""
+      },
+      {
+        "item": "SHIP-FREIGHT",
+        "description": "Freight to Springfield IL",
+        "quantity": "1",
+        "units": "Each",
+        "rate": "200.00",
+        "amount": "200.00",
+        "options": ""
+      }
+    ]
+  },
+  "subsidiary": {
+    "name": "Acme Widgets, Inc.",
+    "mainaddress_text": "500 Industrial Way\nSuite 200\nDenver CO 80202"
+  },
+  "preferences": {
+    "DATEFORMAT": "M/D/YYYY",
+    "NUMBERFORMAT": "1,000,000.00"
+  }
+}

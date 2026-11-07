@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NetSuite PDF Template Viewer</title>
+<link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">NetSuite PDF Template Viewer</div>
+  <label>Template
+    <select id="templateSelect"></select>
+  </label>
+  <label>Sample data
+    <select id="sampleSelect"></select>
+  </label>
+  <button id="saveBtn" title="Save the current tab to disk (Ctrl/Cmd+S)">Save</button>
+  <button id="saveAsBtn" title="Save the current tab under a new name">Save as…</button>
+  <span class="spacer"></span>
+  <label class="check"><input type="checkbox" id="autoRender" checked> Auto-render</label>
+  <label class="check"><input type="checkbox" id="lenient"> Lenient (skip missing values)</label>
+  <button id="renderBtn" class="primary">Render</button>
+  <button id="downloadBtn">Download PDF</button>
+  <span id="engineInfo" class="muted"></span>
+</header>
+
+<div class="workspace">
+  <section class="pane editorPane">
+    <div class="tabs">
+      <button class="tab active" data-tab="template">Template <span id="templateDirty" class="dirty"></span></button>
+      <button class="tab" data-tab="sample">Sample data <span id="sampleDirty" class="dirty"></span></button>
+      <span class="spacer"></span>
+      <span id="diskNotice" class="notice hidden"></span>
+    </div>
+    <div id="templateEditor" class="editor"></div>
+    <div id="sampleEditor" class="editor hidden"></div>
+  </section>
+
+  <div class="divider" id="divider"></div>
+
+  <section class="pane previewPane">
+    <div class="tabs">
+      <button class="tab active" data-mode="html">HTML (fast)</button>
+      <button class="tab" data-mode="pdf">PDF (exact pages)</button>
+      <button class="tab" data-mode="source">Rendered source</button>
+      <span class="spacer"></span>
+      <span id="status" class="muted"></span>
+    </div>
+    <div id="errorBar" class="errorBar hidden"></div>
+    <div id="warnings" class="warnings hidden"></div>
+    <iframe id="htmlPreview" class="preview" title="HTML preview"></iframe>
+    <div id="pdfPreview" class="preview pdfPages hidden"></div>
+    <pre id="sourcePreview" class="preview source hidden"></pre>
+  </section>
+</div>
+
+<script type="module" src="/app.js"></script>
+</body>
+</html>

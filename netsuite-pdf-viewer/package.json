@@ -1,0 +1,32 @@
+{
+  "name": "netsuite-pdf-viewer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local viewer for NetSuite Advanced PDF/HTML (FreeMarker) templates: live preview and PDF output without uploading to NetSuite.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "postinstall": "npm run build",
+    "build": "npm run build:engine && npm run build:ui",
+    "build:engine": "bash engine/build.sh",
+    "build:ui": "node scripts/build-ui.js",
+    "start": "node src/server.js",
+    "render": "node src/cli.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@codemirror/lang-html": "^6.4.9",
+    "@codemirror/lang-json": "^6.0.1",
+    "bwip-js": "^4.5.1",
+    "chokidar": "^4.0.3",
+    "codemirror": "^6.0.1",
+    "express": "^4.21.2",
+    "pdfjs-dist": "^5.4.0",
+    "playwright": "1.63.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.5"
+  }
+}
